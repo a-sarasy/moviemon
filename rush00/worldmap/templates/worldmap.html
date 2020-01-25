@@ -4,10 +4,14 @@
 
 {% block content %}
 <table id="worldmap">
-{% for posx in mapx  %}
+{% for posy in mapy  %}
     <tr>
-        {% for posy in mapy  %}
-        <td></td>
+        {% for posx in mapx  %}
+        <td>
+            {% if persox == posx and persoy == posy %}
+            A
+            {% endif %}
+        </td>
         {% endfor %}
     </tr>
 {% endfor %}
