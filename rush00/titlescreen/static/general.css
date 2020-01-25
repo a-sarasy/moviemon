@@ -43,3 +43,7 @@ body, html {
     width: 100%;
     table-layout: fixed;
 }
+
+#onscreen-message {
+    position: absolute;
+}

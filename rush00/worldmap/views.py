@@ -9,7 +9,10 @@ def wordmap_f(request):
                 "worldmap.html", {
                     'mapx': range(settings.GRID_SIZE),
                     'mapy': range(settings.GRID_SIZE),
-                    'persox': 5,
-                    'persoy': 3,
+                    'persox': 0,
+                    'persoy': 1,
+                    'balls_number': 7,
+                    'ballfindstring': "You encountered Shining",
+                    'moviefindstring': 'You just found a ball!'
                     }
     )
