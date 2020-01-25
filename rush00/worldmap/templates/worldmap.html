@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
+{# We have a variable pos. ex: x = 3 y = 1 pos = 13 (y * 10 + x) #}
 
 {% block content %}
-<div id="titlescreen-container">
-    <h1>MOVIESMONS</h1>
-    <div id="titlescreen--start-menu">
-        <p>A - NEW GAME</p>
-        <p>B - LOAD</p>
-    </div>
-</div>
+<table id="worldmap">
+{% for posx in mapx  %}
+    <tr>
+        {% for posy in mapy  %}
+        <td></td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
 {% endblock %}
 
+
 {% block linkA %}
-{{name}}
+salut
 {% endblock %}
 
 {% block linkB %}

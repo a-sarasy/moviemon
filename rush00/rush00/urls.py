@@ -17,5 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('titlescreen.urls'))
+    path('', include('titlescreen.urls')),
+    path('worldmap', include('worldmap.urls'))
 ]
