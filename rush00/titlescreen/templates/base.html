@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" type="text/css" href="{% static 'general.css' %}" />
+  <title>Moviemon the game</title>
+</head>
+
+<body>
+  <div class="base--full-page">
+    <div class="base--console-frame">
+      <div class="base--console-frame-screen">
+        {% block content %} content {% endblock %}
+      </div>
+      <div class="base--console-frame-buttons">
+        <div class="buttons">
+
+          <button><a href="http://127.0.0.1:8000/{%block linkA%}{%endblock%}">A</a></button>
+          <button><a href="#">B</a></button>
+          <button><a href="#">Start</a></button>
+          <button><a href="#">Select</a></button>
+          <button><a href="#">Up</a></button>
+          <button><a href="#">Right</a></button>
+          <button><a href="#">Down</a></button>
+          <button><a href="#">Left</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
