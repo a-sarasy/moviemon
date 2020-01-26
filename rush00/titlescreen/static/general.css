@@ -47,13 +47,8 @@ body, html {
     position: absolute;
 }
 
-.case_tab{
-    text-align:center;
-}
-
 td{
     border: 1px solid #CC3;
-
 }
 
 #sacha{
