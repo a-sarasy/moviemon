@@ -19,7 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('titlescreen.urls')),
     path('worldmap', include('worldmap.urls')),
-    path('options', include('options.urls')),
+    path('options/', include('options.urls')),
     path('options/save', include('save.urls')),
     path('options/load', include('load.urls')),
 ]
