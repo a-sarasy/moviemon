@@ -7,7 +7,7 @@ from common import game
 
 def wordmap_f(request):
     d = game.data_game()
-    events = ['', '']
+    events = ['', '', '#']
     if request.method == "POST":
         d.load_state()
         if 'up' in request.POST:
@@ -35,6 +35,7 @@ def wordmap_f(request):
                     'persoy': d.data['position'][1],
                     'balls_number': d.data['nbr_movieball'],
                     'ballfindstring': events[0],
-                    'moviefindstring': events[1]
+                    'moviefindstring': events[1],
+                    'battle_link': events[2]
                     }
     )
