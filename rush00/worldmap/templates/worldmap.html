@@ -14,7 +14,7 @@
 {% for posy in mapy  %}
     <tr>
         {% for posx in mapx  %}
-        <td class="case_tab">
+        <td>
             {% if persox == posx and persoy == posy %}
             <img src="{% static 'sacha.png' %}" id="sacha">
             {% endif %}
