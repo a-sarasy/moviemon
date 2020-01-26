@@ -6,7 +6,11 @@
 
 {% block content %}
 <table id="worldmap">
-
+        <div id="onscreen-message">
+                <p >Movieballs: {{ balls_number }}</p>
+                <p >{{ ballfindstring }}</p>
+                <p >{{ moviefindstring }}</p>
+        </div>
 {% for posy in mapy  %}
     <tr>
         {% for posx in mapx  %}

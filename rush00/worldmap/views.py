@@ -7,6 +7,7 @@ from common import game
 
 def wordmap_f(request):
     d = game.data_game()
+    events = ['', '']
     if request.method == "POST":
         d.load_state()
         if 'up' in request.POST:
@@ -19,7 +20,8 @@ def wordmap_f(request):
             d.data['position'][0] += 1
         else:
             raise Http404()
-        d.checkpos()
+        if d.checkpos():
+            events = d.try_random_events()
         d.save_state()
     else:
         d.load_default_settings()
@@ -32,7 +34,7 @@ def wordmap_f(request):
                     'persox': d.data['position'][0],
                     'persoy': d.data['position'][1],
                     'balls_number': d.data['nbr_movieball'],
-                    'ballfindstring': "You encountered Shining! Press ? to capture it!",
-                    'moviefindstring': 'You just found a ball!'
+                    'ballfindstring': events[0],
+                    'moviefindstring': events[1]
                     }
     )
