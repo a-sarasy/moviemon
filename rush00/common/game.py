@@ -80,13 +80,19 @@ class data_game():
     def checkpos(self):
         if self.data['position'][0] < 0 or self.data['position'][0] >= settings.GRID_SIZE:
             self.load_state()
-        if self.data['position'][1] < 0 or self.data['position'][1] >= settings.GRID_SIZE:
+        elif self.data['position'][1] < 0 or self.data['position'][1] >= settings.GRID_SIZE:
             self.load_state()
-
-
-
-
-
+        else:
+            return 1
+        return 0
+    def try_random_events(self):
+        event = ['', '']
+        if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
+            event[0] = 'You just found a ball!'
+            #add ball
+        if random.randint(1, 000) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
+            #select random uncaptured movie
+            event[1] = "You encountered " + 'MOVIEMON' + "Press ? to capture it!"
  
 
 
