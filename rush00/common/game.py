@@ -28,7 +28,23 @@ class data_game():
     data = {}
     list_movie_nc = []
     capturable = ''
-    
+
+    def load_game(self, save_file):
+        gd_file = open(settings.SAVE_FILES + '/' + save_file, 'rb')
+        self.data = pickle.load(gd_file)
+        gd_file.close()
+
+    def save_game(self, slot):
+        c = re.compile("^slot([{}])_([0-9]*)_([0-9]*)\.mmg$".format(list(['A','B','C'])[slot]))
+        for s in os.listdir(settings.SAVE_FILES):
+            match = c.match(s)
+            if match and int(match.group(2)) < int(match.group(3)) and int(match.group(3)) == len(settings.MOVIES):
+                os.remove("{}/{}".format(settings.SAVE_FILES,match.group()))
+        pathfile = "{}/slot{}_{}_{}.mmg".format(settings.SAVE_FILES,list(['A','B','C'])[slot],len(self.data['moviedex']),len(self.data['list_moviemon']))
+        gd_file = open(pathfile, 'wb')
+        pickle.dump(self.data,gd_file)
+        gd_file.close()
+
     def save_state(self):
         gd_file = open('gamedata', 'wb')
         pickle.dump(self.data,gd_file)
