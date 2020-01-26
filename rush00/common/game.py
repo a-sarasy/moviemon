@@ -88,13 +88,15 @@ class data_game():
             return 1
         return 0
     def try_random_events(self):
-        event = ['', '']
+        events = ['', '']
         if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
-            event[0] = 'You just found a ball!'
-            #add ball
-        if random.randint(1, 000) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
+            events[0] = 'You just found a ball!'
+            self.data['nbr_movieball'] += 1
+        if random.randint(1, 100) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
             #select random uncaptured movie
-            event[1] = "You encountered " + 'MOVIEMON' + "Press ? to capture it!" 
+            movie_name = self.get_random_movie()
+            events[1] = "You encountered " + movie_name + ", Press ? to capture it!"
+        return events
 
 
 if __name__ == "__main__":
