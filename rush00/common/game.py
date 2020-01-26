@@ -86,11 +86,7 @@ class data_game():
             self.load_state()
 
 
-def get_slots(savedir):
-    slots = ["Slot A : Free", "Slot B : Free", "Slot C : Free"]
-    for slot in os.listdir(savedir):
-        print(slot)
-    return(slots)
+
 
         
 
