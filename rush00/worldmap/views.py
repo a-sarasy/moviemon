@@ -23,12 +23,20 @@ def wordmap_f(request):
             raise Http404()
         if d.checkpos():
             events = d.try_random_events()
+            d.save_state()
+            return HttpResponseRedirect(request.path +"?events={}+{}".format(events[0], events[1]))
         d.save_state()
         return HttpResponseRedirect(request.path)
     else:
-        
         if 'start' in request.GET:
             d.load_default_settings()
+        elif 'events' in request.GET:
+            d.load_state()
+            movieball = request.GET['events'].split(' ')[0]
+            moviemon = request.GET['events'].split(' ')[1]
+            print(movieball,moviemon)
+            events = d.transform_events(movieball, moviemon)
+            
         else:
             d.load_state()
     d.save_state()
@@ -42,6 +50,7 @@ def wordmap_f(request):
                     'balls_number': d.data['nbr_movieball'],
                     'ballfindstring': events[0],
                     'moviefindstring': events[1],
-                    'battle_link': events[2]
+                    'battle_link': events[2],
+                    'options':'http://127.0.0.1:8000/options/',
                     }
     )

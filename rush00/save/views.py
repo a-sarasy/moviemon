@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from common import game, some_func
 import os
 
@@ -13,7 +13,7 @@ def save_f(request):
             s.minus()
         elif 'down' in request.POST:
             s.plus()
-    else:
-        s.reset()
+        return HttpResponseRedirect(request.path)
+    
 
     return render(request, "save.html", {"slot_place":s.slot_place, "slotA":slots['A'] , "slotB":slots['B'] , "slotC":slots['C']  })

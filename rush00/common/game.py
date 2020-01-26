@@ -92,18 +92,26 @@ class data_game():
     def define_capturable(cls, movie_id):
         cls.capturable = movie_id
 
-    def try_random_events(self):
-        events = ['', '', '#']
-        if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
+    def transform_events(self, movieball_event, moviemon_id):
+        events = ['','', '#']
+        if movieball_event == "True":
             events[0] = 'You just found a ball!'
             self.data['nbr_movieball'] += 1
+        if moviemon_id != "":
+            movie_name = self.get_movie(moviemon_id)['name']
+            events[1] = "You encountered " + movie_name + ", Press A to capture it!"
+            events[2] = 'http://127.0.0.1:8000/battle/' + moviemon_id + '/'
+            self.define_capturable(moviemon_id)
+        return events
+
+    def try_random_events(self):
+        events = ['', '#']
+        if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
+            events[0] = True
         if random.randint(1, 100) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
             #select random uncaptured movie
             movie_id = self.get_random_movie()
-            movie_name = self.get_movie(movie_id)['name']
-            self.define_capturable(movie_id)
-            events[1] = "You encountered " + movie_name + ", Press A to capture it!"
-            events[2] = 'http://127.0.0.1:8000/battle/' + movie_id + '/'
+            events[1] = movie_id
         return events
 
 
