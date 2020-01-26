@@ -10,7 +10,7 @@ class Movies_info:
         for title in titles_movies:
             # try except
             response_json = requests.get(
-                'http://www.omdbapi.com/?apikey=3cc63f26&t="' + title + '"'
+                'http://www.omdbapi.com/?apikey=63ce3381&t="' + title + '"'
             )
             # code check , if !200 -> raise 404
             res = response_json.json()

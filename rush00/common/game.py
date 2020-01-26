@@ -27,6 +27,7 @@ class slot():
 class data_game():
     data = {}
     list_movie_nc = []
+    capturable = ''
     def save_state(self):
         gd_file = open('gamedata', 'wb')
         pickle.dump(self.data,gd_file)
@@ -58,8 +59,8 @@ class data_game():
     def get_list_movi_nc(self):
         movie_nc = []
         for movie in self.data['list_moviemon']:
-            if not movie['Title'] in self.data['moviedex']:
-                movie_nc.append(movie['Title'])
+            if not movie['imdbID'] in self.data['moviedex']:
+                movie_nc.append(movie['imdbID'])
         return(movie_nc)
     def get_random_movie(self):
         list_moviemon_nc = self.get_list_movi_nc()
@@ -68,7 +69,7 @@ class data_game():
         return(len(self.data['moviedex']))
     def get_movie(self, moviemon):
         for movie in self.data["list_moviemon"]:
-            if movie['Title'] ==  moviemon:
+            if movie['imdbID'] ==  moviemon:
                 detail_movie = {
                     "name" : movie['Title'],
                     "poster" : movie['Poster'],
@@ -87,6 +88,10 @@ class data_game():
         else:
             return 1
         return 0
+    @classmethod
+    def define_capturable(cls, movie_id):
+        cls.capturable = movie_id
+
     def try_random_events(self):
         events = ['', '', '#']
         if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
@@ -94,9 +99,11 @@ class data_game():
             self.data['nbr_movieball'] += 1
         if random.randint(1, 100) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
             #select random uncaptured movie
-            movie_name = self.get_random_movie()
+            movie_id = self.get_random_movie()
+            movie_name = self.get_movie(movie_id)['name']
+            self.define_capturable(movie_id)
             events[1] = "You encountered " + movie_name + ", Press A to capture it!"
-            events[2] = 'http://127.0.0.1:8000/battle/' + movie_name.replace(' ', '_').lower() + '/'
+            events[2] = 'http://127.0.0.1:8000/battle/' + movie_id + '/'
         return events
 
 
