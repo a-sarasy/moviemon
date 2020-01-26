@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "options",
     "save",
     "load",
+    "battle"
 ]
 
 MIDDLEWARE = [

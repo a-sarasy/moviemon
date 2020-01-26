@@ -1,11 +1,11 @@
 from django.conf import settings
 import requests
 
-
 class Movies_info:
     film_list = []
 
-    def get_info_list(self):
+    @classmethod
+    def get_info_list(cls):
         titles_movies = settings.MOVIES
         for title in titles_movies:
             # try except
@@ -14,10 +14,9 @@ class Movies_info:
             )
             # code check , if !200 -> raise 404
             res = response_json.json()
-            self.film_list.append(res)
-        return self.film_list
+            cls.film_list.append(res)
 
     def get_list(self):
         if len(self.film_list) == 0:
-            self.film_list = self.get_info_list()
+            self.get_info_list()
         return self.film_list

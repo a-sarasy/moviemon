@@ -96,7 +96,7 @@ class data_game():
             #select random uncaptured movie
             movie_name = self.get_random_movie()
             events[1] = "You encountered " + movie_name + ", Press A to capture it!"
-            events[2] = 'http://127.0.0.1:8000/'
+            events[2] = 'http://127.0.0.1:8000/battle/' + movie_name.replace(' ', '_').lower() + '/'
         return events
 
 
