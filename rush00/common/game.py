@@ -2,6 +2,8 @@ import pickle
 from common import movies
 from django.conf import settings
 import random
+import os
+import re
 
 class slot():
     slot_place = 0
@@ -92,8 +94,7 @@ class data_game():
             #add ball
         if random.randint(1, 000) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
             #select random uncaptured movie
-            event[1] = "You encountered " + 'MOVIEMON' + "Press ? to capture it!"
- 
+            event[1] = "You encountered " + 'MOVIEMON' + "Press ? to capture it!" 
 
 
 if __name__ == "__main__":
