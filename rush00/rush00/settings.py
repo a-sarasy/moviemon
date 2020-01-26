@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "options",
     "save",
     "load",
-    "battle"
+    "battle",
+    "moviedex"
 ]
 
 MIDDLEWARE = [
@@ -132,8 +133,8 @@ MOVIES = [
     "Chainsaw Tales",
     "Frozen Flesh",
     "Three",
+    "Hacked",
     "729",
-    "The Spirit Gallery",
     "Blood Story",
     "Cara de Fogo",
 ]
