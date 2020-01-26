@@ -67,15 +67,15 @@ class data_game():
         return list_moviemon_nc[random.randint(0,len(list_moviemon_nc) - 1)]
     def get_strength(self):
         return(len(self.data['moviedex']))
-    def get_movie(self, moviemon):
+    def get_movie(self, moviemon_id):
         for movie in self.data["list_moviemon"]:
-            if movie['imdbID'] ==  moviemon:
+            if movie['imdbID'] ==  moviemon_id:
                 detail_movie = {
                     "name" : movie['Title'],
                     "poster" : movie['Poster'],
                     "real" : movie["Director"],
                     "year" : movie["Year"],
-                    "rating" : movie['Rated'],
+                    "rating" : movie['imdbRating'],
                     "synopsis" : movie["Plot"],
                     "actors" : movie["Actors"],
                 }

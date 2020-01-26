@@ -20,7 +20,7 @@ urlpatterns = [
     path('', include('titlescreen.urls')),
     path('worldmap/', include('worldmap.urls')),
     path('options/', include('options.urls')),
-    path('options/save/', include('save.urls')),
-    path('options/load/', include('load.urls')),
+    path('options/save_game/', include('save.urls')),
+    path('options/load_game/', include('load.urls')),
     path('battle/<str:moviemon_id>/', include('battle.urls')),
 ]

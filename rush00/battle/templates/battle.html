@@ -1,1 +1,30 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div style="overflow: auto;height: 100%;width: 100%;">
+        <img src=" {{ poster }} ">
+        <p>Moviemon strength: {{ moviemon_strength }}</p>
+        <p>Movieball number: {{ balls_number }}</p>
+        <p>Player Strength: {{ player_strength }}</p>
+        <p>Success probability: {{ success_proba }}%</p>
+        <p>B - Get back to worldmap</p>
+        <p>
+        {% if captured == False %}
+            A - Launch movieball
+            {% if missed == True %}
+                <p>You missed!!</p>
+            {% endif %}
+        {% else %}
+            You caught it!
+        {% endif %}
+        </p>
+    </div>
+{% endblock %}
+
+{% block linkA %}
+{{ movieball_toss_link }}
+{% endblock %}
+
+{% block linkB %}
+http://127.0.0.1:8000/worldmap/
+{% endblock %}

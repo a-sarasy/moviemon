@@ -132,7 +132,7 @@ MOVIES = [
     "Chainsaw Tales",
     "Frozen Flesh",
     "Three",
-    "Voodoo Devil Drums",
+    "729",
     "The Spirit Gallery",
     "Blood Story",
     "Cara de Fogo",
