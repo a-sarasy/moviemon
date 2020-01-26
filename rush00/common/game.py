@@ -3,6 +3,25 @@ from common import movies
 from django.conf import settings
 import random
 
+class slot():
+    slot_place = 0
+
+    @classmethod
+    def minus(cls):
+        if not cls.slot_place <= 0:
+            cls.slot_place -= 1
+
+    @classmethod
+    def plus(cls):
+        if not cls.slot_place >= 2:
+            cls.slot_place += 1
+
+    @classmethod
+    def reset(cls):
+        cls.slot_place = 0
+
+        
+
 class data_game():
     data = {}
     list_movie_nc = []
