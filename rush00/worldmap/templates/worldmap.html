@@ -1,20 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {# We have a variable pos. ex: x = 3 y = 1 pos = 13 (y * 10 + x) #}
 
+
 {% block content %}
 <table id="worldmap">
-    <div id="onscreen-message">
-        <p >Movieballs: {{ balls_number }}</p>
-        <p >{{ ballfindstring }}</p>
-        <p >Movieballs: {{ moviefindstring }}</p>
-    </div>
+
 {% for posy in mapy  %}
     <tr>
         {% for posx in mapx  %}
-        <td>
+        <td class="case_tab">
             {% if persox == posx and persoy == posy %}
-            A
+            <img src="{% static 'sacha.png' %}" id="sacha">
             {% endif %}
         </td>
         {% endfor %}
