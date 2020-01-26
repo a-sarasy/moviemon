@@ -135,3 +135,9 @@ MOVIES = [
 ]
 
 GRID_SIZE = 10
+
+NBR_MOVIEBALL = 5
+
+POS_X = 5
+
+POS_Y = 3
