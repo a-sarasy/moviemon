@@ -1,6 +1,5 @@
 body, html {
     height: 100%;
-    
     margin: 0;
     padding: 0;
 }
@@ -46,4 +45,20 @@ body, html {
 
 #onscreen-message {
     position: absolute;
+}
+
+.case_tab{
+    text-align:center;
+}
+
+td{
+    border: 1px solid #CC3;
+
+}
+
+#sacha{
+    width:20px;
+    height:20px;
+    overflow:visible;
+    position:absolute;
 }
