@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, Http404
+from django.shortcuts import render, HttpResponse, Http404, HttpResponseRedirect
 from django.conf import settings
 from common import game
 
@@ -8,6 +8,7 @@ from common import game
 def wordmap_f(request):
     d = game.data_game()
     events = ['', '', '#']
+    
     if request.method == "POST":
         d.load_state()
         if 'up' in request.POST:
@@ -23,9 +24,14 @@ def wordmap_f(request):
         if d.checkpos():
             events = d.try_random_events()
         d.save_state()
+        return HttpResponseRedirect(request.path)
     else:
-        d.load_default_settings()
-        d.save_state()
+        
+        if 'start' in request.GET:
+            d.load_default_settings()
+        else:
+            d.load_state()
+    d.save_state()
     return render(
                 request, 
                 "worldmap.html", {
