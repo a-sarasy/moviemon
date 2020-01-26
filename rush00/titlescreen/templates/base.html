@@ -23,10 +23,13 @@
           <button><a href="#">B</a></button>
           <button><a href="#">Start</a></button>
           <button><a href="#">Select</a></button>
-          <button><a href="#">Up</a></button>
-          <button><a href="#">Right</a></button>
-          <button><a href="#">Down</a></button>
-          <button><a href="#">Left</a></button>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input name="up" type="submit" value="up">
+            <input name="down" type="submit" value="down">
+            <input name="left" type="submit" value="left">
+            <input name="right" type="submit" value="right">
+          </form>
         </div>
       </div>
     </div>
