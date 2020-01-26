@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "titlescreen",
     "worldmap",
+    "options",
+    "save",
+    "load",
 ]
 
 MIDDLEWARE = [
