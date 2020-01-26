@@ -130,13 +130,13 @@ MOVIES = [
     "Aladdin",
     "Hellboy",
     "Parasite",
-    "Chainsaw Tales",
+    "Werecat",
     "Frozen Flesh",
     "Three",
     "Hacked",
     "729",
     "Blood Story",
-    "Cara de Fogo",
+    "Ghost Rider",
 ]
 
 GRID_SIZE = 10
