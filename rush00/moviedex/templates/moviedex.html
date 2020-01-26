@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="overflow: auto;height: 100%;width: 100%;">
-       <ul>
+<div style="list-style: none;;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
+       <div>
               {% for movie in movie_list %}
-              <li>
-                     <img src="{{ movie|get_item:'Poster' }}">
-                     <p>{{ movie|get_item:'Title' }}</p>
-                     <p>Strength: {{ movie|get_item:'imdbRating' }}</p>
-              </li>       
+              <img src="{{ movie|get_item:'Poster' }}" style="width: 15%;{%if forloop.counter0 == arrow_pos%}border-width: medium;border-style: solid;border-color:blue;{%endif%}">
               {% endfor %}
               <p>A - More information</p>
               <p>select - Back</p>
-       </ul>
+       </div>
 </div>
+{% endblock %}
+
+{% block linkA %}
+{{detail_link}}
 {% endblock %}
