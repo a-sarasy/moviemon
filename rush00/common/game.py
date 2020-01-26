@@ -22,7 +22,20 @@ class slot():
     def reset(cls):
         cls.slot_place = 0
 
-        
+class Selector():
+    slot_place = 0
+
+    @classmethod
+    def minus(cls):
+        cls.slot_place -= 1
+
+    @classmethod
+    def plus(cls):
+        cls.slot_place += 1
+
+    @classmethod
+    def reset(cls):
+        cls.slot_place = 0        
 
 class data_game():
     data = {}
