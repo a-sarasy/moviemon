@@ -28,14 +28,17 @@ class data_game():
     data = {}
     list_movie_nc = []
     capturable = ''
+    
     def save_state(self):
         gd_file = open('gamedata', 'wb')
         pickle.dump(self.data,gd_file)
         gd_file.close()
+    
     def load_state(self):
         gd_file = open('gamedata', 'rb')
         self.data = pickle.load(gd_file)
         gd_file.close()
+    
     def load(self,posx, posy, movieball, moviedex):
         self.data = {
             "position": [posx, posy],
@@ -45,8 +48,10 @@ class data_game():
             }
         self.list_movie_nc = self.get_list_movi_nc()
         return self
+    
     def dump(self):
         return(self.data)
+    
     def load_default_settings(self):
         self.data = {
             "position": [settings.POS_X, settings.POS_Y],
@@ -56,17 +61,21 @@ class data_game():
         }
         list_movie_nc = settings.MOVIES
         return self  
+    
     def get_list_movi_nc(self):
         movie_nc = []
         for movie in self.data['list_moviemon']:
             if not movie['imdbID'] in self.data['moviedex']:
                 movie_nc.append(movie['imdbID'])
         return(movie_nc)
+    
     def get_random_movie(self):
         list_moviemon_nc = self.get_list_movi_nc()
         return list_moviemon_nc[random.randint(0,len(list_moviemon_nc) - 1)]
+    
     def get_strength(self):
         return(len(self.data['moviedex']))
+    
     def get_movie(self, moviemon_id):
         for movie in self.data["list_moviemon"]:
             if movie['imdbID'] ==  moviemon_id:
@@ -80,6 +89,7 @@ class data_game():
                     "actors" : movie["Actors"],
                 }
                 return detail_movie
+    
     def checkpos(self):
         if self.data['position'][0] < 0 or self.data['position'][0] >= settings.GRID_SIZE:
             self.load_state()
@@ -88,6 +98,7 @@ class data_game():
         else:
             return 1
         return 0
+    
     @classmethod
     def define_capturable(cls, movie_id):
         cls.capturable = movie_id
