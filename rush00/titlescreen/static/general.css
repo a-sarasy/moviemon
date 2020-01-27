@@ -27,8 +27,13 @@ body, html {
     height: 20%;
 }
 #titlescreen-container{
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
 }
 #titlescreen--start-menu {
     
