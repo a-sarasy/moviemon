@@ -6,7 +6,6 @@ from django.conf import settings
 def load_f(request):
     s = game.slot()
     d = game.data_game()
-    d.load_state()
     a_link =  "http://127.0.0.1:8000/options/load_game/?slot={}".format(s.slot_place)
     slots = some_func.get_slots(settings.SAVE_FILES)
     slots_name = some_func.get_val_slots(settings.SAVE_FILES)
