@@ -136,7 +136,7 @@ MOVIES = [
     "Three",
     "Hacked",
     "729",
-    "Blood Story",
+    "Hobgoblins",
     "Ghost Rider",
 ]
 
