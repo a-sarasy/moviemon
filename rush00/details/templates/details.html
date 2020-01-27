@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="list-style: none;overflow: auto;height: 100%;width: 100%;">
+       <div>
+           <p>Name: {{ movie|get_item:'name' }}</p>
+            <img src="{{ movie|get_item:'poster' }}">
+            <p>Director(s): {{ movie|get_item:'real' }}</p>
+            <p>Year: {{ movie|get_item:'year' }}</p>
+            <p>Synopsis: {{ movie|get_item:'synopsis' }}</p>
+            <p>Actors: {{ movie|get_item:'actors' }}</p>
+            <p>B - Back</p>
+       </div>
+</div>
+{% endblock %}
+
+{% block linkB %}
+http://127.0.0.1:8000/moviedex/
+{% endblock %}
