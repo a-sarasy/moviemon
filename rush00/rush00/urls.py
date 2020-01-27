@@ -22,7 +22,7 @@ urlpatterns = [
     path('options/', include('options.urls')),
     path('options/save_game/', include('save.urls')),
     path('options/load_game/', include('load.urls')),
-    path('battle/<str:moviemon_id>/', include('battle.urls')),
+    path('battle/', include('battle.urls')),
     path('moviedex/', include('moviedex.urls')),
     path('moviedex/<str:moviemon_id>/', include('details.urls')),
 ]
