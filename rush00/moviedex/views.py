@@ -17,7 +17,7 @@ def moviedex_f(request):
     if request.method == "POST":
         if 'left' in request.POST and selector.slot_place > 0:
             selector.minus()
-        elif 'right' in request.POST and selector.slot_place < len(settings.MOVIES) - 1:
+        elif 'right' in request.POST and selector.slot_place < len(d.data['moviedex']) - 1:
             selector.plus()
 
     return render(request, "moviedex.html",{
