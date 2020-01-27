@@ -49,12 +49,12 @@ class data_game():
         self.load(data)
 
     def save_game(self, slot):
-        c = re.compile("^slot([{}])_([0-9]*)_([0-9]*)\.mmg$".format(list(['A','B','C'])[slot]))
+        c = re.compile("^slot([{}])_([0-9]*)_([0-9]*)\.mmg$".format(list(['a','b','c'])[slot]))
         for s in os.listdir(settings.SAVE_FILES):
             match = c.match(s)
             if match and int(match.group(2)) < int(match.group(3)) and int(match.group(3)) == len(settings.MOVIES):
                 os.remove("{}/{}".format(settings.SAVE_FILES,match.group()))
-        pathfile = "{}/slot{}_{}_{}.mmg".format(settings.SAVE_FILES,list(['A','B','C'])[slot],len(self.data['moviedex']),len(self.data['list_moviemon']))
+        pathfile = "{}/slot{}_{}_{}.mmg".format(settings.SAVE_FILES,list(['a','b','c'])[slot],len(self.data['moviedex']),len(self.data['list_moviemon']))
         gd_file = open(pathfile, 'wb')
         pickle.dump(self.data,gd_file)
         gd_file.close()

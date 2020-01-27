@@ -50,5 +50,6 @@ def wordmap_f(request):
                     'moviefindstring': events[1],
                     'battle_link': events[2],
                     'options':'http://127.0.0.1:8000/options/',
+                    'moviedex_link':'http://127.0.0.1:8000/moviedex/'
                     }
     )

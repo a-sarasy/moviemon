@@ -8,7 +8,7 @@ def save_f(request):
     s = game.slot()
     d = game.data_game()
     d.load_state()
-    slots = some_func.get_slots(settings.SAVE_FILES)
+    
     if request.method == "POST":
         if 'up' in request.POST:
             s.minus()
@@ -18,6 +18,8 @@ def save_f(request):
     if request.method == "GET":
         if 'slot' in request.GET:
             d.save_game(s.slot_place)
+            
+    slots = some_func.get_slots(settings.SAVE_FILES)
     
 
-    return render(request, "save.html", {"slot_place":s.slot_place, "slotA":slots['A'] , "slotB":slots['B'] , "slotC":slots['C'], "save_link":"http://127.0.0.1:8000/options/save_game/?slot={}".format(s.slot_place),"worldmap_link":"http://127.0.0.1:8000/worldmap"  })
+    return render(request, "save.html", {"slot_place":s.slot_place, "slotA":slots['a'] , "slotB":slots['b'] , "slotC":slots['c'], "save_link":"http://127.0.0.1:8000/options/save_game/?slot={}".format(s.slot_place),"options_link":"http://127.0.0.1:8000/options"  })
