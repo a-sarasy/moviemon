@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="list-style: none;;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
+<div style="list-style: none;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
        <div>
               {% for movie in movie_list %}
               <img src="{{ movie|get_item:'Poster' }}" style="width: 15%;{%if forloop.counter0 == arrow_pos%}border-width: medium;border-style: solid;border-color:blue;{%endif%}">

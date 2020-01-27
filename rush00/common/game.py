@@ -118,6 +118,7 @@ class data_game():
                     "actors" : movie["Actors"],
                 }
                 return detail_movie
+        return None
     
     def checkpos(self):
         if self.data['position'][0] < 0 or self.data['position'][0] >= settings.GRID_SIZE:

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "save",
     "load",
     "battle",
-    "moviedex"
+    "moviedex",
+    "details"
 ]
 
 MIDDLEWARE = [
