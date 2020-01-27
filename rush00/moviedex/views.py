@@ -27,7 +27,6 @@ def moviedex_f(request):
     else:
         selector.slot_place = ""
         detail_link = '#'
-    print(selector.slot_place)
     return render(request, "moviedex.html",{
         'movie_list': d.data['list_moviemon'],
         'moviedex': d.data['moviedex'],

@@ -22,7 +22,6 @@ def battle_f(request, moviemon_id):
             if d.data['nbr_movieball'] > 0:
                 d.data['nbr_movieball'] -= 1
                 jet = random.randint(1,100)
-                print(jet)
                 if int(success_proba) >= jet:
                     captured = True
                     movieball_link = '#'
