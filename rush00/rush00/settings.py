@@ -138,6 +138,9 @@ MOVIES = [
     "729",
     "Hobgoblins",
     "Ghost Rider",
+    "Alone in the Dark",
+    "El Babysitter",
+    "Maldito Amor"
 ]
 
 GRID_SIZE = 10
