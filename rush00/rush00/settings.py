@@ -136,8 +136,11 @@ MOVIES = [
     "Three",
     "Hacked",
     "729",
-    "Blood Story",
+    "Hobgoblins",
     "Ghost Rider",
+    "Alone in the Dark",
+    "El Babysitter",
+    "Maldito Amor"
 ]
 
 GRID_SIZE = 10

@@ -4,9 +4,11 @@
 <div style="list-style: none;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
        <div>
               {% for movie in movie_list %}
-                     {% if movie|get_item:'imdbID' in moviedex %}
+                 {% for movie_id in moviedex %}
+                     {% if movie|get_item:'imdbID' == movie_id %}
                      <img src="{{ movie|get_item:'Poster' }}" style="width: 15%;{%if forloop.counter0 == arrow_pos%}border-width: medium;border-style: solid;border-color:blue;{%endif%}">
                      {% endif %}
+                 {% endfor %}
               {% endfor %}
               <p>A - More information</p>
               <p>select - Back</p>
@@ -19,5 +21,9 @@
 {% endblock %}
 
 {% block linkSelect %}
+<<<<<<< HEAD
 {{worldmap_link}}
+=======
+http://127.0.0.1:8000/worldmap/
+>>>>>>> c3a6dd5abb69ce012bc4b2ac163935d57eaf9a14
 {% endblock %}
