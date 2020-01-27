@@ -44,8 +44,9 @@ class data_game():
 
     def load_game(self, save_file):
         gd_file = open(settings.SAVE_FILES + '/' + save_file, 'rb')
-        self.data = pickle.load(gd_file)
+        data = pickle.load(gd_file)
         gd_file.close()
+        self.load(data)
 
     def save_game(self, slot):
         c = re.compile("^slot([{}])_([0-9]*)_([0-9]*)\.mmg$".format(list(['A','B','C'])[slot]))
@@ -68,13 +69,8 @@ class data_game():
         self.data = pickle.load(gd_file)
         gd_file.close()
     
-    def load(self,posx, posy, movieball, moviedex):
-        self.data = {
-            "position": [posx, posy],
-            "nbr_movieball": movieball,
-            "moviedex": moviedex,
-            "list_moviemon" : movies.Movies_info().get_list(),
-            }
+    def load(self, data):
+        self.data = data
         self.list_movie_nc = self.get_list_movi_nc()
         return self
     
