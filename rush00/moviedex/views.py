@@ -24,4 +24,4 @@ def moviedex_f(request):
         'movie_list': d.data['list_moviemon'],
         'moviedex': d.data['moviedex'],
         'arrow_pos': selector.slot_place,
-        'detail_link': 'http://127.0.0.1:8000/moviedex/' + d.data['list_moviemon'][selector.slot_place]['imdbID'] + '/'})
+        'detail_link': 'http://127.0.0.1:8000/moviedex/' + d.data['moviedex'][selector.slot_place] + '/'})
