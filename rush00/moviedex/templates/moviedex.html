@@ -4,10 +4,10 @@
 <div style="list-style: none;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
        <div>
               {% if len_moviedex > 0 %}
+              {% for movie_id in moviedex %}
               {% for movie in movie_list %}
-                 {% for movie_id in moviedex %}
                      {% if movie|get_item:'imdbID' == movie_id %}
-                     <img src="{{ movie|get_item:'Poster' }}" style="width: 15%;{%if forloop.counter0 == arrow_pos%}border-width: medium;border-style: solid;border-color:blue;{%endif%}">
+                     <img src="{{ movie|get_item:'Poster' }}" style="width: 15%;{%if movie_id == selector_pos%}border-width: medium;border-style: solid;border-color:blue;{%endif%}">
                      {% endif %}
                  {% endfor %}
               {% endfor %}

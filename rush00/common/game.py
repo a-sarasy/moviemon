@@ -26,16 +26,20 @@ class Selector():
     slot_place = 0
 
     @classmethod
-    def minus(cls):
-        cls.slot_place -= 1
+    def minus(cls, game_data):
+        i = game_data['moviedex'].index(cls.slot_place)
+        if i > 0:
+            cls.slot_place = game_data['moviedex'][i - 1]
 
     @classmethod
-    def plus(cls):
-        cls.slot_place += 1
+    def plus(cls, game_data):
+        i = game_data['moviedex'].index(cls.slot_place)
+        if i < len(game_data['moviedex']) - 1:
+            cls.slot_place = game_data['moviedex'][i + 1]
 
     @classmethod
-    def reset(cls):
-        cls.slot_place = 0        
+    def reset(cls, game_data):
+        cls.slot_place = game_data['moviedex'][0]      
 
 class data_game():
     data = {}
