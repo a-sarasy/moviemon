@@ -3,6 +3,7 @@
 {% block content %}
 <div style="list-style: none;overflow: auto;height: 100%;width: 100%;display: flex;flex-wrap: wrap;flex-direction: row;">
        <div>
+              {% if len_moviedex > 0 %}
               {% for movie in movie_list %}
                  {% for movie_id in moviedex %}
                      {% if movie|get_item:'imdbID' == movie_id %}
@@ -10,20 +11,24 @@
                      {% endif %}
                  {% endfor %}
               {% endfor %}
+              {% endif %}
+              {% if len_moviedex > 0 %}
               <p>A - More information</p>
+              {% endif%}
+              
               <p>select - Back</p>
        </div>
 </div>
 {% endblock %}
 
 {% block linkA %}
+{% if len_moviedex > 0 %}
 {{detail_link}}
+{% else%}
+#
+{% endif %}
 {% endblock %}
 
 {% block linkSelect %}
-<<<<<<< HEAD
 {{worldmap_link}}
-=======
-http://127.0.0.1:8000/worldmap/
->>>>>>> c3a6dd5abb69ce012bc4b2ac163935d57eaf9a14
 {% endblock %}
