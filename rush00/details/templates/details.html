@@ -9,6 +9,11 @@
             <p>Year: {{ movie|get_item:'year' }}</p>
             <p>Synopsis: {{ movie|get_item:'synopsis' }}</p>
             <p>Actors: {{ movie|get_item:'actors' }}</p>
+            <p>B - Back</p>
        </div>
 </div>
+{% endblock %}
+
+{% block linkB %}
+http://127.0.0.1:8000/moviedex/
 {% endblock %}
