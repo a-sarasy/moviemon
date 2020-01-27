@@ -76,6 +76,7 @@ class data_game():
     def load(self, data):
         self.data = data
         self.list_movie_nc = self.get_list_movi_nc()
+        self.save_state()
         return self
     
     def dump(self):
@@ -147,12 +148,12 @@ class data_game():
 
     def try_random_events(self):
         events = ['', '#']
-        if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
-            events[0] = True
-        if random.randint(1, 100) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
-            #select random uncaptured movie
-            movie_id = self.get_random_movie()
-            events[1] = movie_id
+        if len(self.data['moviedex']) != len(self.data['list_moviemon']):
+            if random.randint(1, 100) <= settings.FIND_BALL_PROBA_PERCENT:
+                events[0] = True
+            if random.randint(1, 100) <= settings.FIND_MOVIEMON_PROBA_PERCENT:
+                movie_id = self.get_random_movie()
+                events[1] = movie_id
         return events
 
 
