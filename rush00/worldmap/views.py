@@ -34,9 +34,7 @@ def wordmap_f(request):
             d.load_state()
             movieball = request.GET['events'].split(' ')[0]
             moviemon = request.GET['events'].split(' ')[1]
-            print(movieball,moviemon)
             events = d.transform_events(movieball, moviemon)
-            
         else:
             d.load_state()
     d.save_state()
